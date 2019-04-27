@@ -1,0 +1,41 @@
+<h2>Component Interaction</h2>
+<app-user-count [allCount]="getAllUsersCount()" [maleCount]="getAllMaleUsersCount()" [femaleCount]="getAllFemaleUsersCount()"
+  (selectedRadioButtonValueChanged)="onUserCountRadioButtonChange($event)"></app-user-count>
+<br />
+<br />
+
+Filter on Name:
+<input type="text" [(ngModel)]="filterBy">
+<br />
+<br />
+
+<table>
+  <thead>
+    <tr>
+      <th>ID</th>
+      <th>Name</th>
+      <th>UserName</th>
+      <th>Gender</th>
+      <th>Email</th>
+      <th>Phone</th>
+    </tr>
+  </thead>
+  <tbody>
+    <ng-container *ngFor="let user of users | filter:filterBy">
+      <tr *ngIf="selectedUserCountRadioButton==='all' || selectedUserCountRadioButton===user.gender ">
+        <td>{{user.id}}</td>
+        <td>{{user.name | capitalize }}</td>
+        <td>{{user.username | uppercase }}</td>
+        <td>{{user.gender}}</td>
+        <td>{{user.email | lowercase }}</td>
+        <td>{{user.phone}}</td>
+      </tr>
+    </ng-container>
+
+    <tr *ngIf="!users || users.length==0">
+      <td colspan="5">
+        No users to display
+      </td>
+    </tr>
+  </tbody>
+</table>

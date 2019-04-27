@@ -1,0 +1,89 @@
+
+<!-- <app-reactive-form></app-reactive-form> -->
+<!-- <app-model-driven-form></app-model-driven-form> -->
+<!-- <app-template-driven-form></app-template-driven-form> -->
+<!-- 
+<br />
+<br />
+<br />
+<br />
+<hr /> -->
+<br />
+
+<div class="userListContainer">
+  <app-user-list></app-user-list>
+  <br />
+  <br />
+</div>
+
+<hr/>
+<app-pipes-demo></app-pipes-demo>
+<br />
+<hr />
+<app-counter></app-counter>
+
+<br />
+<hr />
+<h2>Bindings</h2>
+<h3>Property Binding</h3>
+<h4>Message1: {{message}}</h4>
+<h4 innerHTML="{{message}}">Message2: </h4>
+<h4 bind-innerHTML=message>Message3: </h4>
+<h4 [innerHTML]=message>Message4: </h4>
+<h4>Message5:
+  <span [textContent]=message></span>
+</h4>
+<br>
+
+<h3>Event Binding</h3>
+<button on-click="change()">Click to Change</button>
+<button (click)=change()>Click to Change</button>
+<br>
+
+<h3>Two Way Binding</h3>
+1.
+<input type="text" [value]=message> 2.
+<input type="text" bindon-ngModel=message> 3.
+<input type="text" [(ngModel)]=message> 4.
+<input type="text" [(ngModel)]=name>
+<h3>Hello, {{name}}</h3>
+
+<br>
+<br>
+<br>
+<br>
+<hr />
+<br>
+<br>
+<br>
+<br>
+<br>
+
+
+
+
+
+
+
+<div style="text-align:center">
+  <h1>
+    Welcome to {{ title }}!
+  </h1>
+  <h2>Sass Content</h2>
+</div>
+<div class="customClass">Custom Text</div>
+<br>
+<h2>Directives</h2>
+<div>
+  <h2 [ngClass]="{textRed: flag===true, smallerFont: flag===false}">Attribute Directive</h2>
+  <h2 [ngStyle]="{'color': 'green', 'font-size.px': 12}">Attribute Directive 2</h2>
+</div>
+<div>
+  <h3 *ngIf=flag>Conditional Display</h3>
+  <ul [ngSwitch]=flag>
+    <li *ngSwitchCase=true>Display text for true</li>
+    <li *ngSwitchCase=false>Display text for false</li>
+    <li *ngSwitchDefault>Display text for default</li>
+
+  </ul>
+</div>

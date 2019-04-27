@@ -1,0 +1,62 @@
+<h2>Reactive Form</h2>
+
+<form class="form-horizontal" [formGroup]="registerForm" (submit)="logForm(registerForm.value)">
+  <div class="form-group">
+    <label>ID: </label>
+    <input type="text" class="form-control" formControlName="id">
+    <div class="text-danger" *ngIf="registerForm.get('id').hasError('required') && registerForm.get('id').touched">
+      ID is required
+    </div>
+  </div>
+  <div class="form-group">
+    <label>Name: </label>
+    <input type="text" class="form-control" formControlName="name">
+    <div class="text-danger" *ngIf="registerForm.get('name').hasError('required') && registerForm.get('name').touched">
+      Name is required
+    </div>
+  </div>
+  <div class="form-group">
+    <label>UserName: </label>
+    <input type="text" class="form-control" formControlName="username">
+    <div class="text-danger" *ngIf="registerForm.get('username').touched">
+      <p *ngIf="registerForm.get('username').hasError('required') ">UserName is required</p>
+      <p *ngIf="registerForm.get('username').hasError('minlength') ">Min Length</p>
+      <p *ngIf="registerForm.get('username').hasError('maxlength') ">Max Length</p>
+    </div>
+  </div>
+  <div class="form-group">
+    <label>Gender: </label>
+    <input type="text" class="form-control" formControlName="gender">
+    <div class="text-danger" *ngIf="registerForm.get('gender').hasError('required') && registerForm.get('gender').touched">
+      Gender is required
+    </div>
+  </div>
+  <div class="form-group">
+    <label>Email: </label>
+    <input type="text" class="form-control" formControlName="email">
+    <div class="text-danger" *ngIf="registerForm.get('email').touched">
+      <p *ngIf="registerForm.get('email').hasError('required') ">Email is required</p>
+      <p *ngIf="registerForm.get('email').hasError('email') ">Incorrect email</p>
+    </div>
+  </div>
+  <div class="form-group">
+    <label>Phone: </label>
+    <input type="text" class="form-control" formControlName="phone">
+    <div class="text-danger" *ngIf="registerForm.get('phone').hasError('required') && registerForm.get('phone').touched">
+      Phone is required.....
+    </div>
+  </div>
+  <fieldset formGroupName="address">
+    <div class="form-group">
+      <label>City: </label>
+      <input type="text" class="form-control" formControlName="city">
+    </div>
+    <div class="form-group">
+      <label>Zip: </label>
+      <input type="text" class="form-control" formControlName="zip">
+    </div>
+  </fieldset>
+  <div class="form-group">
+    <input type="submit" class="btn btn-primary" [disabled]=registerForm.invalid value="Submit">
+  </div>
+</form>
