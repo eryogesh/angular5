@@ -1,0 +1,10 @@
+@import '../_vars.scss';
+
+h2{
+    color: $blue-text;
+}
+
+.customClass{
+    color: $custom-text-color;
+    font-size: $custom-font-size;
+}
