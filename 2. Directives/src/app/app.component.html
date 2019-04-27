@@ -1,0 +1,23 @@
+<!--The content below is only a placeholder and can be replaced.-->
+<div style="text-align:center">
+  <h1>
+    Welcome to {{ title }}!
+  </h1>
+  <h2>Sass Content</h2>
+</div>
+<div class="customClass">Custom Text</div>
+<br>
+<h2>Directives</h2>
+<div>
+  <h2 [ngClass]="{textRed: flag===true, smallerFont: flag===false}">Attribute Directive</h2>
+  <h2 [ngStyle]="{'color': 'green', 'font-size.px': 12}">Attribute Directive 2</h2>
+</div>
+<div>
+  <h3 *ngIf=flag>Conditional Display</h3>
+  <ul [ngSwitch]=flag>
+    <li *ngSwitchCase=true>Display text for true</li>
+    <li *ngSwitchCase=false>Display text for false</li>
+    <li *ngSwitchDefault>Display text for default</li>
+    
+  </ul>
+</div>
